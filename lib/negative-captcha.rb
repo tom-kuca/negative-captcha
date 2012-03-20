@@ -32,6 +32,11 @@ class NegativeCaptcha
       hash
     }
     @values = {}
+    if opts[:object]
+      opts[:fields].each do |field|
+        @values[field] = opts[:object].send(field)
+      end 
+    end
     @error = "No params provided"
     process(opts[:params]) if opts[:params] && (opts[:params][:spinner]||opts[:params][:timestamp])
   end

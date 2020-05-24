@@ -47,6 +47,12 @@ class NegativeCaptcha
     @error.nil? || @error == "" || @error.empty?
   end
 
+  def assign_values(params)
+    @fields.each do |name, encrypted_name|
+      @values[name] = params[encrypted_name]
+    end
+  end
+
   def process(params)
     if params[:timestamp].nil? || (Time.now.to_i - params[:timestamp].to_i).abs > 86400
       @error = I18n.t(:invalid_timestamp, scope: [:negative_captcha, :errors])
@@ -57,9 +63,7 @@ class NegativeCaptcha
       false
     else
       @error = ""
-      @fields.each do |name, encrypted_name|
-        @values[name] = params[encrypted_name]
-      end
+      assign_values(params)
     end
   end
 end

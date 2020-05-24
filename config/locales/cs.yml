@@ -1,0 +1,7 @@
+cs:
+  negative_captcha:
+    errors:
+      no_params: "Žádmé pole nebylo vyplněňo"
+      hidden_fields_submitted: "Zkuste to znovu. Ochrana proti spamu vás vyhodnotila jako robota. To se občas stává, pokud váš prohlížeč automaticky vyplní skrytá pole."
+      invalid_timestamp: "Systém si myslí, že jste robot (neplatné časové razítko). Zkuste to znovu."
+      invalid_spinner: "Systém si myslí, že jste robot (neplatné hodnota v poli spinner). Zkuste to znovu."
